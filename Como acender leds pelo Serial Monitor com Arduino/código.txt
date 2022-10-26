@@ -1,0 +1,16 @@
+char c;
+void setup(){
+pinMode(2,OUTPUT);
+pinMode(3,OUTPUT);
+Serial.begin(9600);
+}
+
+void loop()
+{
+if (Serial.available()>0)
+{
+c = Serial.read() - '0';
+Serial.flush();
+digitalWrite(c,!digitalRead(c));
+}
+}
